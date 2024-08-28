@@ -14,6 +14,14 @@ metadata:
 webhooks:
   {{- if .Values.cluster_shield.features.audit.enabled }}
   - name: audit.secure.sysdig.com
+    namespaceSelector:
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: NotIn
+          values:
+            {{- range .Values.exclusionNamespaces }}
+            - {{ . }}
+            {{- end }}
     matchPolicy: Equivalent
     rules:
       - apiGroups:

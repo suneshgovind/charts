@@ -103,6 +103,9 @@ cluster_shield:
       http_port: 6443
       # The timeout for the audit feature
       timeout: 5
+      # Namespaces where the validating webhook need not intercept requests
+      exclusionNamespaces:
+        # - kube-system
     posture:
       # Enable the posture feature
       enabled: false

@@ -453,6 +453,13 @@
               "type": "integer",
               "description": "The number of seconds for the request to time out",
               "default": 5
+            },
+            "exclusionNamespaces": {
+              "type": "array",
+              "description": "Namespaces where the validating webhook need not intercept requests",
+              "items": {
+                "type": "string"
+              }
             }
           },
           "required": [
